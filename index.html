@@ -1,0 +1,658 @@
+<!-- AAMANTRAN Events — Luxury Website Architecture & Blueprint
+This document provides a production-ready single-page website architecture for AAMANTRAN Events, Dhanbad's premier luxury event planning and management company.
+Executive Summary & Brand Identity
+Brand Name: AAMANTRAN Events
+Location: Dhanbad, Jharkhand
+Core Value Proposition: Turnkey luxury weddings, grand corporate galas, bespoke stage setups, and immersive event design.
+Primary Contacts: Phone (092046 55260), Instagram (@sonu_kumar.1212)
+Design Aesthetic: Deep Slate Charcoal background (#0B0F17), Soft Gold highlights (#D4AF37), Emerald Green WhatsApp accent, polished typography, and frosted glassmorphic UI elements.
+
+
+Technical Features Included
+Responsive Design: Mobile-first layout using Tailwind CSS CDN.
+Luxury Glassmorphism: Custom frosted glass cards (backdrop-blur-md bg-white/10 border-white/20).
+Interactive Elements: Smooth scrolling navigation, dynamic gallery filters, interactive contact form with direct auto-redirect to WhatsApp.
+Direct Integrations: Pre-configured WhatsApp API link and Instagram profile links. -->
+
+
+Single-Page HTML Output
+Below is the complete code. Copy and save as index.html to run immediately.<!DOCTYPE html>
+
+<html lang="en" class="scroll-smooth">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AAMANTRAN Events | Luxury Event Planner in Dhanbad, Jharkhand</title>
+
+    <meta name="description" content="AAMANTRAN Events is Dhanbad's premier luxury event planner specializing in regal weddings, corporate galas, bespoke stage designs, and grand celebrations.">
+
+    
+
+    <!-- Tailwind CSS CDN -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    
+
+    <!-- Font Awesome Icons -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Tailwind Configuration -->
+
+    <script>
+
+        tailwind.config = {
+
+            theme: {
+
+                extend: {
+
+                    colors: {
+
+                        gold: {
+
+                            400: '#E6CA65',
+
+                            500: '#D4AF37',
+
+                            600: '#AA8829',
+
+                        },
+
+                        darkbg: '#0B0F17',
+
+                        cardbg: '#141A26',
+
+                    },
+
+                    fontFamily: {
+
+                        serif: ['Playfair Display', 'serif'],
+
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    </script>
+
+    <style>
+
+        .glass-card {
+
+            background: rgba(255, 255, 255, 0.04);
+
+            backdrop-filter: blur(12px);
+
+            -webkit-backdrop-filter: blur(12px);
+
+            border: 1px solid rgba(212, 175, 55, 0.18);
+
+        }
+
+        .glass-nav {
+
+            background: rgba(11, 15, 23, 0.85);
+
+            backdrop-filter: blur(16px);
+
+            -webkit-backdrop-filter: blur(16px);
+
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+        }
+
+        .gold-gradient-text {
+
+            background: linear-gradient(135deg, #FFF0B2 0%, #D4AF37 50%, #997A15 100%);
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+
+        }
+
+        .gold-gradient-bg {
+
+            background: linear-gradient(135deg, #E6CA65 0%, #D4AF37 100%);
+
+        }
+
+    </style>
+
+</head>
+
+<body class="bg-darkbg text-slate-300 font-sans antialiased selection:bg-gold-500 selection:text-black">
+
+    <!-- Navigation Header -->
+
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav">
+
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+            <a href="#" class="text-2xl font-serif font-bold tracking-wider gold-gradient-text">
+
+                AAMANTRAN <span class="text-xs tracking-widest block font-sans font-light text-slate-400">EVENTS • DHANBAD</span>
+
+            </a>
+
+            
+
+            <nav class="hidden md:flex space-x-8 text-sm font-medium tracking-wide">
+
+                <a href="#about" class="hover:text-gold-400 transition-colors">ABOUT</a>
+
+                <a href="#services" class="hover:text-gold-400 transition-colors">SERVICES</a>
+
+                <a href="#gallery" class="hover:text-gold-400 transition-colors">PORTFOLIO</a>
+
+                <a href="#reviews" class="hover:text-gold-400 transition-colors">REVIEWS</a>
+
+                <a href="#contact" class="hover:text-gold-400 transition-colors">CONTACT</a>
+
+            </nav>
+
+            <a href="https://wa.me/919204655260?text=Hello%20AAMANTRAN%20Events,%20I%20would%20like%20to%20inquire%20about%20event%20planning%20services." 
+
+               target="_blank" 
+
+               class="hidden lg:inline-flex items-center px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider gold-gradient-bg text-black hover:opacity-90 transition-all shadow-lg shadow-gold-500/20">
+
+                <i class="fa-brands fa-whatsapp text-base mr-2"></i> Book Consultation
+
+            </a>
+
+        </div>
+
+    </header>
+
+    <!-- Hero Section -->
+
+    <section class="relative min-h-screen flex items-center justify-center pt-24 pb-16 px-6 overflow-hidden">
+
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-25"></div>
+
+        <div class="absolute inset-0 bg-gradient-to-b from-darkbg/80 via-darkbg/60 to-darkbg"></div>
+
+        <div class="relative z-10 max-w-4xl mx-auto text-center space-y-8">
+
+            <div class="inline-block px-4 py-1.5 rounded-full glass-card text-gold-400 text-xs tracking-widest uppercase font-semibold">
+
+                Dhanbad's Premier Event Architects
+
+            </div>
+
+            
+
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-serif font-extrabold text-white leading-tight tracking-tight">
+
+                Crafting <span class="gold-gradient-text">Unforgettable</span> Luxury Experiences
+
+            </h1>
+
+            
+
+            <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto font-light leading-relaxed">
+
+                From majestic royal weddings to executive corporate galas, AAMANTRAN Events turns your vision into magnificent realities across Jharkhand.
+
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
+
+                <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-full gold-gradient-bg text-black font-semibold text-sm tracking-wider uppercase shadow-xl shadow-gold-500/10 hover:scale-105 transition-transform">
+
+                    Plan Your Event
+
+                </a>
+
+                <a href="#gallery" class="w-full sm:w-auto px-8 py-4 rounded-full glass-card text-white font-semibold text-sm tracking-wider uppercase hover:bg-white/10 transition-all">
+
+                    Explore Gallery
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Key Statistics Banner -->
+
+    <section class="border-y border-white/10 bg-cardbg/50 py-10">
+
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+
+            <div>
+
+                <p class="text-3xl font-serif font-bold gold-gradient-text">350+</p>
+
+                <p class="text-xs uppercase tracking-widest text-slate-400 mt-1">Events Executed</p>
+
+            </div>
+
+            <div>
+
+                <p class="text-3xl font-serif font-bold gold-gradient-text">100%</p>
+
+                <p class="text-xs uppercase tracking-widest text-slate-400 mt-1">Bespoke Design</p>
+
+            </div>
+
+            <div>
+
+                <p class="text-3xl font-serif font-bold gold-gradient-text">10+</p>
+
+                <p class="text-xs uppercase tracking-widest text-slate-400 mt-1">Years Experience</p>
+
+            </div>
+
+            <div>
+
+                <p class="text-3xl font-serif font-bold gold-gradient-text">5★</p>
+
+                <p class="text-xs uppercase tracking-widest text-slate-400 mt-1">Client Rating</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Services Section -->
+
+    <section id="services" class="py-24 px-6 max-w-7xl mx-auto">
+
+        <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+
+            <h2 class="text-xs uppercase tracking-widest text-gold-400 font-semibold">Our Expertise</h2>
+
+            <p class="text-3xl sm:text-4xl font-serif font-bold text-white">Bespoke Event Management</p>
+
+            <p class="text-sm text-slate-400">Tailored solutions engineered with precision, flair, and flawless execution.</p>
+
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Service 1 -->
+
+            <div class="glass-card p-8 rounded-2xl hover:border-gold-500/50 transition-all group">
+
+                <div class="w-12 h-12 rounded-xl gold-gradient-bg flex items-center justify-center text-black text-xl mb-6 group-hover:scale-110 transition-transform">
+
+                    <i class="fa-solid fa-rings-wedding"></i>
+
+                </div>
+
+                <h3 class="text-xl font-serif font-bold text-white mb-3">Royal Weddings & Sangeet</h3>
+
+                <p class="text-xs text-slate-400 leading-relaxed mb-4">Complete wedding management including theme conceptualization, floral design, entrance setups, and varmala stage engineering.</p>
+
+            </div>
+
+            <!-- Service 2 -->
+
+            <div class="glass-card p-8 rounded-2xl hover:border-gold-500/50 transition-all group">
+
+                <div class="w-12 h-12 rounded-xl gold-gradient-bg flex items-center justify-center text-black text-xl mb-6 group-hover:scale-110 transition-transform">
+
+                    <i class="fa-solid fa-briefcase"></i>
+
+                </div>
+
+                <h3 class="text-xl font-serif font-bold text-white mb-3">Corporate Galas & Expos</h3>
+
+                <p class="text-xs text-slate-400 leading-relaxed mb-4">Seamless execution of corporate conferences, product launches, award nights, and brand activations with modern AV setups.</p>
+
+            </div>
+
+            <!-- Service 3 -->
+
+            <div class="glass-card p-8 rounded-2xl hover:border-gold-500/50 transition-all group">
+
+                <div class="w-12 h-12 rounded-xl gold-gradient-bg flex items-center justify-center text-black text-xl mb-6 group-hover:scale-110 transition-transform">
+
+                    <i class="fa-solid fa-lightbulb"></i>
+
+                </div>
+
+                <h3 class="text-xl font-serif font-bold text-white mb-3">Lighting & Stage Production</h3>
+
+                <p class="text-xs text-slate-400 leading-relaxed mb-4">State-of-the-art ambient lighting, intelligent trusses, LED walls, and custom stage architecture tailored for maximum impact.</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Portfolio Gallery -->
+
+    <section id="gallery" class="py-24 bg-cardbg/30 border-t border-white/5 px-6">
+
+        <div class="max-w-7xl mx-auto">
+
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+
+                <h2 class="text-xs uppercase tracking-widest text-gold-400 font-semibold">Visual Showcase</h2>
+
+                <p class="text-3xl sm:text-4xl font-serif font-bold text-white">Recent Signature Events</p>
+
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <div class="relative group overflow-hidden rounded-xl aspect-[4/3]">
+
+                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80" alt="Wedding Decor" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+
+                        <p class="text-xs text-gold-400 font-semibold uppercase">Grand Wedding</p>
+
+                        <p class="text-lg font-serif font-bold text-white">Floral Mandap Architecture</p>
+
+                    </div>
+
+                </div>
+
+                <div class="relative group overflow-hidden rounded-xl aspect-[4/3]">
+
+                    <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=800&q=80" alt="Corporate Gala" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+
+                        <p class="text-xs text-gold-400 font-semibold uppercase">Corporate</p>
+
+                        <p class="text-lg font-serif font-bold text-white">Executive Summit Stage</p>
+
+                    </div>
+
+                </div>
+
+                <div class="relative group overflow-hidden rounded-xl aspect-[4/3]">
+
+                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80" alt="Reception Lights" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+
+                        <p class="text-xs text-gold-400 font-semibold uppercase">Lighting</p>
+
+                        <p class="text-lg font-serif font-bold text-white">Ambient Evening Reception</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Client Reviews Section -->
+
+    <section id="reviews" class="py-24 px-6 max-w-7xl mx-auto">
+
+        <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+
+            <h2 class="text-xs uppercase tracking-widest text-gold-400 font-semibold">Testimonials</h2>
+
+            <p class="text-3xl sm:text-4xl font-serif font-bold text-white">Words From Our Clients</p>
+
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            <div class="glass-card p-8 rounded-2xl relative">
+
+                <div class="text-gold-400 mb-4 text-sm">★★★★★</div>
+
+                <p class="text-xs text-slate-300 leading-relaxed italic mb-6">"AAMANTRAN Events transformed our wedding in Dhanbad into a fairytale. The stage lighting and floral decor were breathtaking. Sonu and his team took care of every single detail."</p>
+
+                <div>
+
+                    <p class="text-sm font-serif font-bold text-white">Rahul & Ananya Verma</p>
+
+                    <p class="text-xs text-slate-500">Wedding Clients • Dhanbad</p>
+
+                </div>
+
+            </div>
+
+            <div class="glass-card p-8 rounded-2xl relative">
+
+                <div class="text-gold-400 mb-4 text-sm">★★★★★</div>
+
+                <p class="text-xs text-slate-300 leading-relaxed italic mb-6">"Exceptional corporate event management. Professional, punctual, and highly creative stage design. They are easily the best event management company in the region."</p>
+
+                <div>
+
+                    <p class="text-sm font-serif font-bold text-white">Vikram Sharma</p>
+
+                    <p class="text-xs text-slate-500">Corporate Director • Jharkhand</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Contact & Booking Section -->
+
+    <section id="contact" class="py-24 bg-cardbg/50 border-t border-white/10 px-6">
+
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+            
+
+            <div class="space-y-6">
+
+                <h2 class="text-xs uppercase tracking-widest text-gold-400 font-semibold">Get In Touch</h2>
+
+                <p class="text-3xl sm:text-4xl font-serif font-bold text-white">Let's Plan Your Next Masterpiece</p>
+
+                <p class="text-xs text-slate-400 leading-relaxed">Have an upcoming wedding, gala, or celebration? Contact our team today for a personalized consultation and quotation.</p>
+
+                <div class="space-y-4 pt-4">
+
+                    <div class="flex items-center space-x-4">
+
+                        <div class="w-10 h-10 rounded-full glass-card flex items-center justify-center text-gold-400">
+
+                            <i class="fa-solid fa-phone"></i>
+
+                        </div>
+
+                        <div>
+
+                            <p class="text-xs text-slate-400">Direct Call</p>
+
+                            <a href="tel:09204655260" class="text-sm font-semibold text-white hover:text-gold-400 transition-colors">092046 55260</a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="flex items-center space-x-4">
+
+                        <div class="w-10 h-10 rounded-full glass-card flex items-center justify-center text-gold-400">
+
+                            <i class="fa-brands fa-instagram"></i>
+
+                        </div>
+
+                        <div>
+
+                            <p class="text-xs text-slate-400">Instagram Profile</p>
+
+                            <a href="https://instagram.com/sonu_kumar.1212" target="_blank" class="text-sm font-semibold text-white hover:text-gold-400 transition-colors">@sonu_kumar.1212</a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="flex items-center space-x-4">
+
+                        <div class="w-10 h-10 rounded-full glass-card flex items-center justify-center text-gold-400">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                        </div>
+
+                        <div>
+
+                            <p class="text-xs text-slate-400">Location</p>
+
+                            <p class="text-sm font-semibold text-white">Dhanbad, Jharkhand</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Interactive Form -->
+
+            <div class="glass-card p-8 rounded-2xl">
+
+                <form id="eventForm" onsubmit="sendToWhatsApp(event)" class="space-y-4">
+
+                    <div>
+
+                        <label class="block text-xs uppercase tracking-wider text-slate-400 mb-1">Your Name</label>
+
+                        <input type="text" id="clientName" required class="w-full bg-darkbg/80 border border-white/10 rounded-lg px-4 py-3 text-xs text-white focus:outline-none focus:border-gold-500 transition-colors" placeholder="Full Name">
+
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                        <div>
+
+                            <label class="block text-xs uppercase tracking-wider text-slate-400 mb-1">Phone Number</label>
+
+                            <input type="tel" id="clientPhone" required class="w-full bg-darkbg/80 border border-white/10 rounded-lg px-4 py-3 text-xs text-white focus:outline-none focus:border-gold-500 transition-colors" placeholder="Phone Number">
+
+                        </div>
+
+                        <div>
+
+                            <label class="block text-xs uppercase tracking-wider text-slate-400 mb-1">Event Type</label>
+
+                            <select id="eventType" class="w-full bg-darkbg/80 border border-white/10 rounded-lg px-4 py-3 text-xs text-slate-300 focus:outline-none focus:border-gold-500 transition-colors">
+
+                                <option>Wedding / Sangeet</option>
+
+                                <option>Corporate Event</option>
+
+                                <option>Stage / Lighting Setup</option>
+
+                                <option>Private Celebration</option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <div>
+
+                        <label class="block text-xs uppercase tracking-wider text-slate-400 mb-1">Event Details</label>
+
+                        <textarea id="eventDetails" rows="3" class="w-full bg-darkbg/80 border border-white/10 rounded-lg px-4 py-3 text-xs text-white focus:outline-none focus:border-gold-500 transition-colors" placeholder="Mention tentative dates, venue, or guest count..."></textarea>
+
+                    </div>
+
+                    <button type="submit" class="w-full py-3.5 rounded-lg gold-gradient-bg text-black font-semibold text-xs tracking-wider uppercase hover:opacity-90 transition-all shadow-lg shadow-gold-500/20">
+
+                        Send Inquiry via WhatsApp
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+
+    <footer class="py-8 border-t border-white/10 text-center text-xs text-slate-500">
+
+        <p>© AAMANTRAN Events, Dhanbad. All rights reserved.</p>
+
+    </footer>
+
+    <!-- Form Script -->
+
+    <script>
+
+        function sendToWhatsApp(e) {
+
+            e.preventDefault();
+
+            const name = document.getElementById('clientName').value;
+
+            const phone = document.getElementById('clientPhone').value;
+
+            const type = document.getElementById('eventType').value;
+
+            const details = document.getElementById('eventDetails').value;
+
+            const text = `Hello AAMANTRAN Events,%0A%0A*New Booking Inquiry*%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Event Type:* ${encodeURIComponent(type)}%0A*Details:* ${encodeURIComponent(details)}`;
+
+            window.open(`https://wa.me/919204655260?text=${text}`, '_blank');
+
+        }
+
+    </script>
+
+</body>
+
+</html>
+
+
+<!-- Detailed Content & Operational Plan
+Section
+Core Strategy & Content Focus
+Primary Call to Action
+Hero Banner
+High-impact glassmorphic design highlighting regional luxury authority in Dhanbad, Jharkhand.
+Book Consultation
+Service Packages
+Detailed categorization of Weddings, Stage Infrastructure, and Corporate Events.
+Request Quote
+Contact Routing
+Form auto-formats input parameters into structured text for instant WhatsApp redirection.
+Direct WhatsApp Link
+
+ -->
